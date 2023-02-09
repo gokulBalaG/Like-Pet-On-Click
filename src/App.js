@@ -1,12 +1,26 @@
-function App() {
+import { useState } from "react";
 
+function getRandomAnimal() {
+    const animals = ['bird', 'dog', 'cat', 'mouse'];
+
+    return animals[Math.floor(Math.random() * animals.length)];
+}
+
+function App() {
+    const [animals, setAnimals] = useState([]);
     // const handleClick = () => {
     //     console.log('Button was clicked!');
     // };
 
-    return (<div>
-        <button onClick={() => console.log('Button was clicked!')}>Add Animal</button>
-    </div>
+    const handleClick = () => {
+        setAnimals([...animals, getRandomAnimal()]);
+    };
+
+    return (
+        <div>
+            <button onClick={handleClick}>Add Animal</button>
+            <div>{animals}</div>
+        </div>
     );
 }
 
