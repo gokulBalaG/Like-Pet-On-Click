@@ -7,6 +7,7 @@ import heart from "./svg/heart.svg";
 import horse from "./svg/horse.svg";
 import { useState } from "react";
 import { click } from "@testing-library/user-event/dist/click";
+import './AnimalShow.css'
 
 const svgMap = {
     cat, dog, cow, gator, horse, bird
@@ -20,9 +21,10 @@ function AnimalShow({ type }) {
     };
 
     return (
-        <div onClick={handleClick}>
-            <img alt="animal" src={svgMap[type]} />
+        <div className="animal-show" onClick={handleClick}>
+            <img className="animal" alt="animal" src={svgMap[type]} />
             <img
+                className="heart"
                 alt="heart"
                 src={heart}
                 style={{ width: 10 + 10 * clicks + 'px' }} />
